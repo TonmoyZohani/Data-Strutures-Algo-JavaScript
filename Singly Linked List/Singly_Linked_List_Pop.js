@@ -30,21 +30,31 @@ class SinglyLinkedList {
     var current = this.head;
     var newTail = current;
 
+    // Traverse the list until the last node is reached
     while (current.next) {
       newTail = current;
       current = current.next;
     }
 
     this.tail = newTail;
-    this.tail.next = null;
+    this.tail.next = null; // Remove the reference to the last node
     this.length--;
 
+    // If the list becomes empty, reset head and tail to null
     if (this.length === 0) {
       this.head = null;
       this.tail = null;
     }
 
-    return current;
+    return current; // Return the removed node
+  }
+
+  traverse() {
+    var current = this.head;
+    while (current) {
+      console.log(current.val);
+      current = current.next;
+    }
   }
 }
 
@@ -53,11 +63,4 @@ list.push("HELLO");
 list.push("GOODBYE");
 list.push("!");
 
-list.pop();
-list.pop();
-list.pop();
-
-console.log(list);
-
-// console.log(list.head);
-// console.log(list.tail);
+list.traverse(); // Output: HELLO, GOODBYE, !
