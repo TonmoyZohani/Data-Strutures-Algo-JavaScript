@@ -26,8 +26,11 @@ class SinglyLinkedList {
 var list = new SinglyLinkedList();
 list.push("HELLO");
 list.push("GOODBYE");
+list.push("BROTHER");
+
 
 console.log(list.head.val); // Hello
 console.log(list.tail.val); // GOODBYE
+console.log(list)
 
 
