@@ -70,6 +70,19 @@ class SinglyLinkedList {
       this.head = null;
     }
   }
+
+  unShift(val) {
+    let newNode = new Node(val);
+    if (!this.head) {
+      this.head = newNode;
+      this.tail = newNode;
+    } else {
+      newNode.next = this.head;
+      this.head = newNode;
+    }
+    this.length++;
+    return this;
+  }
 }
 
 var list = new SinglyLinkedList();
@@ -77,6 +90,4 @@ list.push("HELLO");
 list.push("GOODBYE");
 list.push("!");
 
-list.shift();
-
-console.log(list);
+console.log(list.unShift("Hola"));
