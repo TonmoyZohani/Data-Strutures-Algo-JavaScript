@@ -83,11 +83,29 @@ class SinglyLinkedList {
     this.length++;
     return this;
   }
+
+  get(index) {
+    if (index < 0 || index >= this.length) {
+      return null;
+    }
+
+    let counter = 0;
+    let currentNode = this.head;
+
+    while (counter !== index) {
+      currentNode = currentNode.next;
+      counter++;
+    }
+
+    return currentNode;
+  }
 }
 
 var list = new SinglyLinkedList();
 list.push("HELLO");
 list.push("GOODBYE");
 list.push("!");
+list.push("<3");
+list.push("last");
 
-console.log(list.unShift("Hola"));
+console.log(list.get(3));
