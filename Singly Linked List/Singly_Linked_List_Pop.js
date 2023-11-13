@@ -96,8 +96,18 @@ class SinglyLinkedList {
       currentNode = currentNode.next;
       counter++;
     }
-
     return currentNode;
+  }
+
+  set(index, val) {
+    let foundNode = this.get(index);
+
+    if (foundNode) {
+      foundNode.val = val;
+      return true;
+    }
+
+    return false;
   }
 }
 
@@ -108,4 +118,5 @@ list.push("!");
 list.push("<3");
 list.push("last");
 
-console.log(list.get(3));
+list.set(4, "Lol");
+console.log(list);
