@@ -129,6 +129,26 @@ class SinglyLinkedList {
     prevNode.next = newNode;
     newNode.next = nextNode;
   }
+
+  remove(index) {
+    if (index < 0 || index >= this.length) {
+      return undefined;
+    }
+
+    if (index === 0) {
+      return this.shift();
+    }
+
+    if (index === this.length - 1) {
+      return this.pop();
+    }
+
+    let prevNode = this.get(index - 1);
+    let removeNode = prevNode.next;
+    prevNode.next = removeNode.next;
+    this.length--;
+    return removeNode;
+  }
 }
 
 var list = new SinglyLinkedList();
@@ -140,4 +160,8 @@ list.push("last");
 list.set(4, "Lol");
 list.insert(1, "Tonmoy");
 
+// console.log(list.get(1));
+
+list.remove(1, "Tonmoy");
 console.log(list.get(1));
+console.log(list);
