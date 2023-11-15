@@ -26,6 +26,25 @@ class SinglyLinkedList {
     this.length++;
     return this;
   }
+
+  pop() {
+    let currentNode = this.head;
+    let tailNode = currentNode;
+
+    while (currentNode.next) {
+      tailNode = currentNode;
+      currentNode = currentNode.next;
+    }
+
+    this.tail = tailNode;
+    this.tail.next = null;
+    this.length--;
+
+    if (this.length === 0) {
+      this.head = null;
+      this.tail = null;
+    }
+  }
 }
 
 const list = new SinglyLinkedList();
