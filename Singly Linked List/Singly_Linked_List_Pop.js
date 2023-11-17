@@ -46,6 +46,22 @@ class SinglyLinkedList {
     }
   }
 
+  reverse() {
+    let node = this.head;
+    this.head = this.tail;
+    this.tail = node;
+    let next;
+    let prev = null;
+
+    for (let i = 0; i < this.length; i++) {
+      next = node.next;
+      node.next = prev;
+      prev = node;
+      node = next;
+    }
+    return this;
+  }
+
   print() {
     let arr = [];
     let current = this.head;
@@ -54,7 +70,6 @@ class SinglyLinkedList {
       arr.push(current.val);
       current = current.next;
     }
-
     console.log(arr);
   }
 }
@@ -66,4 +81,6 @@ list.push(101);
 list.push(102);
 list.push(103);
 
+list.print();
+console.log(list.reverse());
 list.print();
