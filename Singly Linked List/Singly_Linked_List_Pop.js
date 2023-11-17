@@ -45,8 +45,25 @@ class SinglyLinkedList {
       this.tail = null;
     }
   }
+
+  print() {
+    let arr = [];
+    let current = this.head;
+
+    while (current) {
+      arr.push(current.val);
+      current = current.next;
+    }
+
+    console.log(arr);
+  }
 }
 
 const list = new SinglyLinkedList();
 
-list.push();
+list.push(100);
+list.push(101);
+list.push(102);
+list.push(103);
+
+list.print();
