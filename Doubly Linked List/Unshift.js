@@ -83,7 +83,7 @@ class DoublyLinkedList {
 
 let list = new DoublyLinkedList();
 
-list.push(100);
-list.push(101);
-list.pop();
-console.log(list);
+// list.push(100);
+// list.push(101);
+// list.pop();
+// console.log(list);
