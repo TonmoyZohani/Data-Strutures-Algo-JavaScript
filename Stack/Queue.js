@@ -1,39 +1,44 @@
 class Queue {
-    constructor() {
-      this.items = [];
-    }
-  
-    enqueue(item) {
-      this.items.push(item);
-    }
-  
-    dequeue() {
-      return this.items.shift();
-    }
-  
-    peek() {
-      return this.items[0];
-    }
-  
-    isEmpty() {
-      return this.items.length === 0;
-    }
+  constructor() {
+    this.items = [];
   }
 
-  const queue = new Queue();
+  enqueue(item) {
+    this.items.push(item);
+  }
 
-queue.isEmpty();    // true
+  dequeue() {
+    return this.items.shift();
+  }
 
-queue.enqueue('A');
-queue.enqueue('B');
-queue.enqueue('C');
-queue.enqueue('D');
-queue.enqueue('E');
+  peek() {
+    return this.items[0];
+  }
 
-queue.isEmpty();    // false
+  isEmpty() {
+    return this.items.length === 0;
+  }
+}
 
-queue.peek();       // 'A'
+const queue = new Queue();
 
-queue.dequeue();    // 'A'
-queue.dequeue();    // 'B'
-queue.dequeue();    // 'C'
+queue.isEmpty(); // true
+
+
+queue.enqueue("A");
+queue.enqueue("B");
+queue.enqueue("C");
+queue.enqueue("D");
+queue.enqueue("E");
+
+console.log(queue);
+
+queue.isEmpty(); // false
+
+queue.peek(); // 'A'
+
+queue.dequeue(); // 'A'
+queue.dequeue(); // 'B'
+queue.dequeue(); // 'C'
+
+
