@@ -7,6 +7,10 @@ class Queue {
     this.items.push(item);
   }
 
+  //   dequeue() {
+  //     return this.items.shift();
+  //   }
+
   dequeue() {
     return this.items.shift();
   }
@@ -24,7 +28,6 @@ const queue = new Queue();
 
 queue.isEmpty(); // true
 
-
 queue.enqueue("A");
 queue.enqueue("B");
 queue.enqueue("C");
@@ -40,5 +43,3 @@ queue.peek(); // 'A'
 queue.dequeue(); // 'A'
 queue.dequeue(); // 'B'
 queue.dequeue(); // 'C'
-
-
