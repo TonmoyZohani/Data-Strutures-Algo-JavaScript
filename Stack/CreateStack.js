@@ -28,3 +28,6 @@ console.log(stack.items); // [ 11, 5, 15, 8, 12 ]
 console.log(stack.pop()); // 11
 console.log(stack.items); // [ 5, 15, 8, 12 ]
 console.log(stack.peek()); // 5
+
+
+// https://www.30secondsofcode.org/js/s/data-structures-stack/
