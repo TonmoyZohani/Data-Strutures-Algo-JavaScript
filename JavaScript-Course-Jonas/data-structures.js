@@ -10,24 +10,30 @@
 
 // Destructure Objects
 
-const employee = {
-  id: 1,
-  info: {
-    name: "Jane",
-    position: "Developer",
-  },
-  age: "28",
-  room: 208,
-};
+// const employee = {
+//   id: 1,
+//   info: {
+//     name: "Jane",
+//     position: "Developer",
+//   },
+//   age: "28",
+//   room: 208,
+// };
 
-const { info } = employee;
-const { id, ...rest } = employee;
+// const { info } = employee;
+// const { id, ...rest } = employee;
 
 // console.log("Info", info);
 // console.log("Rest", rest);
 
-const student = { name: "Tonmoy", age: 28, id: 1 };
+// const student = { name: "Tonmoy", age: 28, id: 1 };
 
-const { name: perName } = student;
+// const { name: perName } = student;
 
-console.log(perName);
+// console.log(perName);
+
+const arr = [1, 2, 3];
+const lastArr = [6, 7, 8, 9];
+const copyArr = [...arr, 4, 5, ...lastArr];
+
+console.log(copyArr);
