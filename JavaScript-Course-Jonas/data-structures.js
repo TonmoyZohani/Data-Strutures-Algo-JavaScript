@@ -24,4 +24,10 @@ const { info } = employee;
 const { id, ...rest } = employee;
 
 // console.log("Info", info);
-console.log("Rest", rest);
+// console.log("Rest", rest);
+
+const student = { name: "Tonmoy", age: 28, id: 1 };
+
+const { name: perName } = student;
+
+console.log(perName);
