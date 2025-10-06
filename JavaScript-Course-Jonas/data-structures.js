@@ -16,8 +16,12 @@ const employee = {
     name: "Jane",
     position: "Developer",
   },
+  age: "28",
+  room: 208,
 };
 
 const { info } = employee;
+const { id, ...rest } = employee;
 
-console.log("Info", info);
+// console.log("Info", info);
+console.log("Rest", rest);
