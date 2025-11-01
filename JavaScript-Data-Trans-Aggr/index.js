@@ -113,10 +113,38 @@ map.set(course3, { courserId: 3, courseName: "Algorithms" });
 
 // console.log(uniqueProducts);
 
-const range = (start, end, step) =>
-  Array.from(
-    { length: Math.ceil((end - start) / step + 1) },
-    (_, i) => start + i * step
-  );
+// const range = (start, end, step) =>
+//   Array.from(
+//     { length: Math.ceil((end - start) / step + 1) },
+//     (_, i) => start + i * step
+//   );
 
-console.log(range(1, 10, 2));
+// console.log(range(1, 10, 2));
+
+// const products = [
+//   { id: 1, name: "Apple iPhone 15", quantity: 10, price: 999 },
+//   { id: 2, name: "Nike Air Max 270", quantity: 25, price: 150 },
+//   { id: 3, name: "Sony WH-1000XM5", quantity: 15, price: 399 },
+//   { id: 4, name: "Levi’s Denim Jacket", quantity: 30, price: 89 },
+//   { id: 5, name: "Instant Pot Duo 7-in-1", quantity: 20, price: 110 },
+// ];
+
+// const subTotal = products.reduce((acc, product) => {
+//   return acc + product.price * product.quantity;
+// }, 0);
+
+// console.log(subTotal);
+
+const players = [
+  { name: "Lionel Messi", goals: 32 },
+  { name: "Cristiano Ronaldo", goals: 28 },
+  { name: "Kylian Mbappé", goals: 35 },
+  { name: "Erling Haaland", goals: 41 },
+  { name: "Neymar Jr", goals: 18 },
+];
+
+const bestPlayer = players.reduce((acc, player) => {
+  return acc.goals > player.goals ? acc : player;
+}, players[0]);
+
+console.log(bestPlayer);
