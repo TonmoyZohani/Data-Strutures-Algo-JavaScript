@@ -105,4 +105,10 @@ const topElectronics = products
   .slice(0, 3)
   .map((product) => ({ name: product.name, price: product.price }));
 
-console.log("Top Electronics", topElectronics);
+// console.log("Top Electronics", topElectronics);
+
+const newProducts = ["apple", "banana", "mango", "apple", "orange"];
+
+const uniqueProducts = [...new Set(newProducts)];
+
+console.log(uniqueProducts);
