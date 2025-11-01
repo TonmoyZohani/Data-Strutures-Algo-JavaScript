@@ -165,20 +165,58 @@ map.set(course3, { courserId: 3, courseName: "Algorithms" });
 
 // console.log(bookLookup['i-4']);
 
-const surveyResponse = [
-  'A',        // 1 time
-  'B', 'B',   // 2 times
-  'C', 'C', 'C', 'C', 'C', // 5 times
-  'D',        // 1 time
-  'E', 'E',   // 2 times
-  'F'         // 1 time
+// const surveyResponse = [
+//   'A',        // 1 time
+//   'B', 'B',   // 2 times
+//   'C', 'C', 'C', 'C', 'C', // 5 times
+//   'D',        // 1 time
+//   'E', 'E',   // 2 times
+//   'F'         // 1 time
+// ];
+
+// const countResponses = surveyResponse.reduce((acc, response) => {
+//   acc[response] = (acc[response] || 0) + 1;
+//   return acc;
+// }, {});
+// console.log(countResponses);
+
+const products = [
+ 
+  { category: "Footwear", item: "Nike Air Max 270", price: 150, quantity: 25 },
+  {
+    category: "Electronics",
+    item: "Sony WH-1000XM5 Headphones",
+    price: 399,
+    quantity: 15,
+  },
+  {
+    category: "Clothing",
+    item: "Levi’s Denim Jacket",
+    price: 89,
+    quantity: 30,
+  },
+  {
+    category: "HomeAppliances",
+    item: "Instant Pot Duo 7-in-1",
+    price: 110,
+    quantity: 20,
+  },
 ];
 
+const revenue = products.reduce((acc, product) => {
+  const { category, price, quantity } = product;
 
-const countResponses = surveyResponse.reduce((acc, response) => {    
-  acc[response] = (acc[response] || 0) + 1;
+  if (!acc[category]) {
+    acc[category] = {
+      totalRevenue: 0,
+      totalQuantity: 0,
+    };
+  }
+
+  acc[category].totalRevenue += price * quantity;
+  acc[category].totalQuantity += quantity;
+
   return acc;
 }, {});
-console.log(countResponses);
 
-
+console.log(revenue);
