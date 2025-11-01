@@ -149,18 +149,36 @@ map.set(course3, { courserId: 3, courseName: "Algorithms" });
 
 // console.log(bestPlayer);
 
-const books = [
-  { id: "i-1", title: "The Alchemist", author: "Paulo Coelho" },
-  { id: "i-2", title: "To Kill a Mockingbird", author: "Harper Lee" },
-  { id: "i-3", title: "1984", author: "George Orwell" },
-  { id: "i-4", title: "The Great Gatsby", author: "F. Scott Fitzgerald" },
-  { id: "i-5", title: "Atomic Habits", author: "James Clear" },
+// const books = [
+//   { id: "i-1", title: "The Alchemist", author: "Paulo Coelho" },
+//   { id: "i-2", title: "To Kill a Mockingbird", author: "Harper Lee" },
+//   { id: "i-3", title: "1984", author: "George Orwell" },
+//   { id: "i-4", title: "The Great Gatsby", author: "F. Scott Fitzgerald" },
+//   { id: "i-5", title: "Atomic Habits", author: "James Clear" },
+// ];
+
+// const bookLookup = books.reduce((acc, book) => {
+//   acc[book.id] = book;
+//   return acc;
+// }, {});
+// console.log(bookLookup);
+
+// console.log(bookLookup['i-4']);
+
+const surveyResponse = [
+  'A',        // 1 time
+  'B', 'B',   // 2 times
+  'C', 'C', 'C', 'C', 'C', // 5 times
+  'D',        // 1 time
+  'E', 'E',   // 2 times
+  'F'         // 1 time
 ];
 
-const bookLookup = books.reduce((acc, book) => {
-  acc[book.id] = book;
+
+const countResponses = surveyResponse.reduce((acc, response) => {    
+  acc[response] = (acc[response] || 0) + 1;
   return acc;
 }, {});
-console.log(bookLookup);
+console.log(countResponses);
 
-console.log(bookLookup['i-4']);
+
