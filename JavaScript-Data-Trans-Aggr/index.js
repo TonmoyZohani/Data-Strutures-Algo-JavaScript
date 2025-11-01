@@ -135,16 +135,32 @@ map.set(course3, { courserId: 3, courseName: "Algorithms" });
 
 // console.log(subTotal);
 
-const players = [
-  { name: "Lionel Messi", goals: 32 },
-  { name: "Cristiano Ronaldo", goals: 28 },
-  { name: "Kylian Mbappé", goals: 35 },
-  { name: "Erling Haaland", goals: 41 },
-  { name: "Neymar Jr", goals: 18 },
+// const players = [
+//   { name: "Lionel Messi", goals: 32 },
+//   { name: "Cristiano Ronaldo", goals: 28 },
+//   { name: "Kylian Mbappé", goals: 35 },
+//   { name: "Erling Haaland", goals: 41 },
+//   { name: "Neymar Jr", goals: 18 },
+// ];
+
+// const bestPlayer = players.reduce((acc, player) => {
+//   return acc.goals > player.goals ? acc : player;
+// }, players[0]);
+
+// console.log(bestPlayer);
+
+const books = [
+  { id: "i-1", title: "The Alchemist", author: "Paulo Coelho" },
+  { id: "i-2", title: "To Kill a Mockingbird", author: "Harper Lee" },
+  { id: "i-3", title: "1984", author: "George Orwell" },
+  { id: "i-4", title: "The Great Gatsby", author: "F. Scott Fitzgerald" },
+  { id: "i-5", title: "Atomic Habits", author: "James Clear" },
 ];
 
-const bestPlayer = players.reduce((acc, player) => {
-  return acc.goals > player.goals ? acc : player;
-}, players[0]);
+const bookLookup = books.reduce((acc, book) => {
+  acc[book.id] = book;
+  return acc;
+}, {});
+console.log(bookLookup);
 
-console.log(bestPlayer);
+console.log(bookLookup['i-4']);
