@@ -181,7 +181,7 @@
 // console.log(countResponses);
 
 // const products = [
- 
+
 //   { category: "Footwear", item: "Nike Air Max 270", price: 150, quantity: 25 },
 //   {
 //     category: "Electronics",
@@ -220,3 +220,42 @@
 // }, {});
 
 // console.log(revenue);
+
+const data = [
+  { time: "2025-11-05T10:00:00Z", value: 10 },
+  { time: "2025-11-05T10:03:00Z", value: 12 },
+  { time: "2025-11-05T10:07:00Z", value: 14 },
+  { time: "2025-11-05T10:15:00Z", value: 18 },
+  { time: "2025-11-05T10:18:00Z", value: 20 },
+  { time: "2025-11-05T10:27:00Z", value: 22 },
+];
+
+function binTimeSeries(data, intervalMinutes) {
+  const intervalMs = intervalMinutes * 60 * 1000;
+
+  const bins = data.reduce((acc, timeData) => {
+    const { time, value } = timeData;
+
+    const timestamp = new Date(time).getTime();
+    const binStart = Math.floor(timestamp / intervalMs) * intervalMs;
+    const binLabel = new Date(binStart).toISOString();
+
+    if (!acc[binLabel]) {
+      acc[binLabel] = { sum: 0, count: 0 };
+    }
+
+    acc[binLabel].sum += value;
+    acc[binLabel].count += 1;
+
+    return acc;
+  }, {});
+
+  return Object.entries(bins).map(([binStart, { sum, count }]) => ({
+    binStart,
+    avgValue: sum / count,
+  }));
+}
+
+const result = binTimeSeries(data, 10);
+
+console.log(result);
