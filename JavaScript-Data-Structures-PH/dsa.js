@@ -44,4 +44,5 @@ console.log(stack.peek());
 console.log(stack.pop());
 console.log(stack.size());
 console.log(stack.isEmpty());
+console.log(stack.getAll());
 stack.print();
