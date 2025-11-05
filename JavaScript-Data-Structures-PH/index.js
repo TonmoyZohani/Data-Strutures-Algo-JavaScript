@@ -260,16 +260,35 @@
 
 // console.log(result);
 
-const createCounter = () => {
-  let count = 0;
+// const createCounter = () => {
+//   let count = 0;
 
-  return (amount) => {
-    count = count + amount;
-    return count;
-  };
-};
+//   return (amount) => {
+//     count = count + amount;
+//     return count;
+//   };
+// };
 
-const counter = createCounter();
+// const counter = createCounter();
 
-console.log(counter(3));
-console.log(counter(5));
+// console.log(counter(3));
+// console.log(counter(5));
+
+class Counter {
+  constructor(counter) {
+    this.counter = counter;
+  }
+
+  add(amount) {
+    this.counter = this.counter + amount;
+  }
+
+  print() {
+    console.log(this.counter);
+  }
+}
+
+const counter1 = new Counter(0);
+
+counter1.add(5);
+counter1.print();
