@@ -291,4 +291,5 @@ class Counter {
 const counter1 = new Counter(0);
 
 counter1.add(5);
+counter1.add(3);
 counter1.print();
