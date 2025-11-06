@@ -48,6 +48,20 @@ class LinkedList {
     this.length++;
   }
 
+  prepend(value) {
+    const newNode = new Node(value);
+
+    if (this.head === null) {
+      this.head = newNode;
+      this.tail = newNode;
+    } else {
+      newNode.next = this.head;
+      this.head = newNode;
+    }
+
+    this.length++;
+  }
+
   print() {
     let currentNode = this.head;
 
@@ -62,4 +76,5 @@ const linkedList = new LinkedList();
 linkedList.append(10);
 linkedList.append(20);
 linkedList.append(30);
+linkedList.prepend(40);
 linkedList.print();
