@@ -126,19 +126,19 @@ class LinkedList {
     let currentIndex = 0;
 
     // Traverse to the node to remove
-    // while (currentIndex < index) {
-    //   previousNode = currentNode;
-    //   currentNode = currentNode.next;
-    //   currentIndex++;
-    // }
+    while (currentIndex < index) {
+      previousNode = currentNode;
+      currentNode = currentNode.next;
+      currentIndex++;
+    }
 
     // Remove the node
     previousNode.next = currentNode.next;
 
     // If we removed the tail, update tail pointer
-    if (index === this.length - 1) {
-      this.tail = previousNode;
-    }
+    // if (index === this.length - 1) {
+    //   this.tail = previousNode;
+    // }
 
     this.length--;
     return currentNode;
