@@ -93,6 +93,57 @@ class LinkedList {
     return true;
   }
 
+  remove(index) {
+    // Handle edge cases
+    if (index < 0 || index >= this.length) {
+      return null; // or throw new Error("Index out of bounds");
+    }
+
+    // If list has only one node
+    if (this.length === 1) {
+      const removedNode = this.head;
+      this.head = null;
+      this.tail = null;
+      this.length = 0;
+      return removedNode;
+    }
+
+    // Remove from head
+    if (index === 0) {
+      const removedNode = this.head;
+      this.head = this.head.next;
+      this.length--;
+
+      if (this.length === 0) {
+        this.tail = null;
+      }
+      return removedNode;
+    }
+
+    // Remove from middle or tail
+    let currentNode = this.head;
+    let previousNode = null;
+    let currentIndex = 0;
+
+    // Traverse to the node to remove
+    while (currentIndex < index) {
+      previousNode = currentNode;
+      currentNode = currentNode.next;
+      currentIndex++;
+    }
+
+    // Remove the node
+    previousNode.next = currentNode.next;
+
+    // If we removed the tail, update tail pointer
+    if (index === this.length - 1) {
+      this.tail = previousNode;
+    }
+
+    this.length--;
+    return currentNode;
+  }
+
   print() {
     let currentNode = this.head;
 
