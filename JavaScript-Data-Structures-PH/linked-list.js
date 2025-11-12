@@ -162,99 +162,152 @@
 // list.insert(4, 40); // List: 5 -> 10 -> 20 -> 30 -> 40
 // list.print(); // Output: 5, 10, 20, 30, 40
 
-class Node {
-  constructor(value) {
-    this.value = value;
-    this.next = null;
-  }
-}
+// class Node {
+//   constructor(value) {
+//     this.value = value;
+//     this.next = null;
+//   }
+// }
 
-class Queue {
+// class Queue {
+//   constructor() {
+//     this.front = null;  // First element in queue (to be removed)
+//     this.rear = null;   // Last element in queue (most recently added)
+//     this.length = 0;
+//   }
+
+//   // Add to the end of the queue (enqueue)
+//   enqueue(value) {
+//     const newNode = new Node(value);
+
+//     if (this.isEmpty()) {
+//       // If queue is empty, new node becomes both front and rear
+//       this.front = newNode;
+//       this.rear = newNode;
+//     } else {
+//       // Add to the end and update rear pointer
+//       this.rear.next = newNode;
+//       this.rear = newNode;
+//     }
+
+//     this.length++;
+//     return this;
+//   }
+
+//   // Remove from the front of the queue (dequeue)
+//   dequeue() {
+//     if (this.isEmpty()) {
+//       return null; // or throw new Error("Queue is empty");
+//     }
+
+//     const removedNode = this.front;
+
+//     if (this.front === this.rear) {
+//       // Only one element in queue
+//       this.front = null;
+//       this.rear = null;
+//     } else {
+//       // Move front pointer to next node
+//       this.front = this.front.next;
+//     }
+
+//     this.length--;
+//     return removedNode.value;
+//   }
+
+//   // Peek at the front element without removing it
+//   peek() {
+//     if (this.isEmpty()) {
+//       return null;
+//     }
+//     return this.front.value;
+//   }
+
+//   // Check if queue is empty
+//   isEmpty() {
+//     return this.length === 0;
+//   }
+
+//   // Get the size of the queue
+//   size() {
+//     return this.length;
+//   }
+
+//   // Print the queue (for debugging)
+//   print() {
+//     if (this.isEmpty()) {
+//       console.log("Queue is empty");
+//       return;
+//     }
+
+//     let currentNode = this.front;
+//     const elements = [];
+
+//     while (currentNode !== null) {
+//       elements.push(currentNode.value);
+//       currentNode = currentNode.next;
+//     }
+
+//     console.log("Queue:", elements.join(" → "));
+//   }
+
+//   // Clear the queue
+//   clear() {
+//     this.front = null;
+//     this.rear = null;
+//     this.length = 0;
+//   }
+// }
+
+// console.log('Test')
+
+// Define a simple Stack class
+class Stack {
   constructor() {
-    this.front = null;  // First element in queue (to be removed)
-    this.rear = null;   // Last element in queue (most recently added)
-    this.length = 0;
+    this.items = [];
   }
 
-  // Add to the end of the queue (enqueue)
-  enqueue(value) {
-    const newNode = new Node(value);
-
-    if (this.isEmpty()) {
-      // If queue is empty, new node becomes both front and rear
-      this.front = newNode;
-      this.rear = newNode;
-    } else {
-      // Add to the end and update rear pointer
-      this.rear.next = newNode;
-      this.rear = newNode;
-    }
-
-    this.length++;
-    return this;
+  push(element) {
+    this.items.push(element);
   }
 
-  // Remove from the front of the queue (dequeue)
-  dequeue() {
-    if (this.isEmpty()) {
-      return null; // or throw new Error("Queue is empty");
-    }
-
-    const removedNode = this.front;
-
-    if (this.front === this.rear) {
-      // Only one element in queue
-      this.front = null;
-      this.rear = null;
-    } else {
-      // Move front pointer to next node
-      this.front = this.front.next;
-    }
-
-    this.length--;
-    return removedNode.value;
+  pop() {
+    return this.items.pop();
   }
 
-  // Peek at the front element without removing it
   peek() {
-    if (this.isEmpty()) {
-      return null;
-    }
-    return this.front.value;
+    return this.items[this.items.length - 1];
   }
 
-  // Check if queue is empty
   isEmpty() {
-    return this.length === 0;
-  }
-
-  // Get the size of the queue
-  size() {
-    return this.length;
-  }
-
-  // Print the queue (for debugging)
-  print() {
-    if (this.isEmpty()) {
-      console.log("Queue is empty");
-      return;
-    }
-
-    let currentNode = this.front;
-    const elements = [];
-
-    while (currentNode !== null) {
-      elements.push(currentNode.value);
-      currentNode = currentNode.next;
-    }
-
-    console.log("Queue:", elements.join(" → "));
-  }
-
-  // Clear the queue
-  clear() {
-    this.front = null;
-    this.rear = null;
-    this.length = 0;
+    return this.items.length === 0;
   }
 }
+
+// Function to check for valid parentheses
+function isValidParentheses(s) {
+  const stack = new Stack();
+  const pairs = {
+    ')': '(',
+    '}': '{',
+    ']': '['
+  };
+
+  for (let char of s) {
+    if (char === '(' || char === '{' || char === '[') {
+      stack.push(char);
+    } else if (char === ')' || char === '}' || char === ']') {
+      if (stack.isEmpty() || stack.pop() !== pairs[char]) {
+        return false;
+      }
+    }
+  }
+
+  return stack.isEmpty();
+}
+
+// Example usage:
+console.log(isValidParentheses("()"));        // true
+console.log(isValidParentheses("({[]})"));    // true
+console.log(isValidParentheses("({[)]}"));    // false
+console.log(isValidParentheses("((("));       // false
