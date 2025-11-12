@@ -262,52 +262,70 @@
 // console.log('Test')
 
 // Define a simple Stack class
-class Stack {
-  constructor() {
-    this.items = [];
-  }
+// class Stack {
+//   constructor() {
+//     this.items = [];
+//   }
 
-  push(element) {
-    this.items.push(element);
-  }
+//   push(element) {
+//     this.items.push(element);
+//   }
 
-  pop() {
-    return this.items.pop();
-  }
+//   pop() {
+//     return this.items.pop();
+//   }
 
-  peek() {
-    return this.items[this.items.length - 1];
-  }
+//   peek() {
+//     return this.items[this.items.length - 1];
+//   }
 
-  isEmpty() {
-    return this.items.length === 0;
-  }
-}
+//   isEmpty() {
+//     return this.items.length === 0;
+//   }
+// }
 
-// Function to check for valid parentheses
-function isValidParentheses(s) {
-  const stack = new Stack();
-  const pairs = {
-    ')': '(',
-    '}': '{',
-    ']': '['
-  };
+// // Function to check for valid parentheses
+// function isValidParentheses(s) {
+//   const stack = new Stack();
+//   const pairs = {
+//     ')': '(',
+//     '}': '{',
+//     ']': '['
+//   };
 
-  for (let char of s) {
-    if (char === '(' || char === '{' || char === '[') {
-      stack.push(char);
-    } else if (char === ')' || char === '}' || char === ']') {
-      if (stack.isEmpty() || stack.pop() !== pairs[char]) {
-        return false;
-      }
-    }
-  }
+//   for (let char of s) {
+//     if (char === '(' || char === '{' || char === '[') {
+//       stack.push(char);
+//     } else if (char === ')' || char === '}' || char === ']') {
+//       if (stack.isEmpty() || stack.pop() !== pairs[char]) {
+//         return false;
+//       }
+//     }
+//   }
 
-  return stack.isEmpty();
+//   return stack.isEmpty();
+// }
+
+// // Example usage:
+// console.log(isValidParentheses("()"));        // true
+// console.log(isValidParentheses("({[]})"));    // true
+// console.log(isValidParentheses("({[)]}"));    // false
+// console.log(isValidParentheses("((("));       // false
+
+function isPalindrome(str) {
+  // Remove spaces and make lowercase (optional normalization)
+  const cleaned = str.toLowerCase().replace(/[^a-z0-9]/g, '');
+
+  // Reverse the string
+  const reversed = cleaned.split('').reverse().join('');
+
+  // Compare original and reversed
+  return cleaned === reversed;
 }
 
 // Example usage:
-console.log(isValidParentheses("()"));        // true
-console.log(isValidParentheses("({[]})"));    // true
-console.log(isValidParentheses("({[)]}"));    // false
-console.log(isValidParentheses("((("));       // false
+console.log(isPalindrome("madam"));          // true
+console.log(isPalindrome("racecar"));        // true
+console.log(isPalindrome("hello"));          // false
+console.log(isPalindrome("A man a plan a canal Panama")); // true
+
