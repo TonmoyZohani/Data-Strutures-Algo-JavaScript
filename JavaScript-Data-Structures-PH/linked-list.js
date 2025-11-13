@@ -331,18 +331,18 @@
 // console.log(isPalindrome("hello")); // false
 // console.log(isPalindrome("A man a plan a canal Panama")); // true
 
-function twoSum(nums, target) {
-  const map = new Map(); // stores number → index
+// function twoSum(nums, target) {
+//   const map = new Map(); // stores number → index
 
-  for (let i = 0; i < nums.length; i++) {
-    const complement = target - nums[i];
+//   for (let i = 0; i < nums.length; i++) {
+//     const complement = target - nums[i];
 
-    if (map.has(complement)) {
-      // found a pair
-      return [map.get(complement), i];
-    }
+//     if (map.has(complement)) {
+//       // found a pair
+//       return [map.get(complement), i];
+//     }
 
-    map.set(nums[i], i);
-  }
-}
+//     map.set(nums[i], i);
+//   }
+// }
 
