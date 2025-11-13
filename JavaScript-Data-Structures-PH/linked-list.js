@@ -312,20 +312,37 @@
 // console.log(isValidParentheses("({[)]}"));    // false
 // console.log(isValidParentheses("((("));       // false
 
-function isPalindrome(str) {
-  // Remove spaces and make lowercase (optional normalization)
-  const cleaned = str.toLowerCase().replace(/[^a-z0-9]/g, '');
+// function isPalindrome(str) {
+//   // Remove spaces and make lowercase (optional normalization)
+//   const cleaned = str.toLowerCase().replace(/[^a-z0-9]/g, "");
 
-  // Reverse the string
-  const reversed = cleaned.split('').reverse().join('');
+//   // Reverse the string
+//   const reversed = cleaned.split("").reverse().join("");
 
-  // Compare original and reversed
-  return cleaned === reversed;
+//   console.log("Reversed", reversed);
+
+//   // Compare original and reversed
+//   return cleaned === reversed;
+// }
+
+// // Example usage:
+// console.log(isPalindrome("madam")); // true
+// console.log(isPalindrome("racecar")); // true
+// console.log(isPalindrome("hello")); // false
+// console.log(isPalindrome("A man a plan a canal Panama")); // true
+
+function twoSum(nums, target) {
+  const map = new Map(); // stores number → index
+
+  for (let i = 0; i < nums.length; i++) {
+    const complement = target - nums[i];
+
+    if (map.has(complement)) {
+      // found a pair
+      return [map.get(complement), i];
+    }
+
+    map.set(nums[i], i);
+  }
 }
-
-// Example usage:
-console.log(isPalindrome("madam"));          // true
-console.log(isPalindrome("racecar"));        // true
-console.log(isPalindrome("hello"));          // false
-console.log(isPalindrome("A man a plan a canal Panama")); // true
 
